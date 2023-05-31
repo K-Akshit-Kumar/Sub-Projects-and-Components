@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;1,100;1,200;1,300;1,400;1,500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css"/>
+
+    <title>Pet Met</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        font-family: 'Poppins', sans-serif;
+        box-sizing: border-box;
+        /* background-color: black; */
+    }
+    html{
+        scroll-behavior: smooth;
+    }
+    #arrow{
+        position:fixed;
+        text-decoration: none;
+        width: 40px;
+        height: 40px;
+        text-align: center;
+        right: 15px;
+        bottom: 30px;
+        font-size: 25px;
+        color: black;
+        background-color: rgb(182, 182, 182);
+        border-radius: 50px;
+        z-index: 6;
+    }
+    .menu{
+        padding-top: 20px;
+        width: 100%;
+        height: 60px;
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row;
+        margin-bottom: 50px;
+    }
+    .menu h2{
+        margin-left: 65px;
+        border: 1px solid black;
+        padding: 0 15px;
+        border-radius: 10px;
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-shadow: 5px 5px 5px rgb(135, 215, 241);
+    }
+    .menu .links{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .menu .links a{
+            text-decoration: none;
+            padding: 5px 17px;
+            margin: 0 5px;
+            color: black;
+            font-weight: 500;
+    }
+    .menu .links a:hover{
+            background-color: rgb(123, 202, 228);
+            border-radius: 25px;
+    }
+    .swiper{
+        width: 100%;
+        height: 550px;
+    }
+    .swiper-wrapper{
+        align-items: center;
+    }
+    .swiper-slider{
+        width: 100%;
+        height: 550px; 
+        
+    }
+    .swiper-slide img{
+        border-radius: 10px;
+        width: 95%;
+        height: 550px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        
+    }
+    .about{
+        width: 100%;
+        height: 400px;
+        margin-top: 60px;
+        /* background-color: red; */
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+    .about h1{
+        font-size: 45px;
+    }
+    .about .para{
+        width: 50%;
+        /* background-color: blue; */
+        text-align: center;
+        padding-top: 50px;
+    }
+    .about .para p{
+        font-size: 20px;
+        line-height: 1.5em;
+    }
+    .what{
+
+        margin-bottom: 60px;
+    }
+    .download{
+        width: 100%;
+        height: 500px;
+        /* background-color: red; */
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+    .float{
+        width: 100%;
+        height: 400px;
+        display: flex;
+        flex-direction: row;
+    }
+    .download h1{
+        text-align: center;
+        font-size: 45px;
+        margin-bottom: 30px;
+    }
+    .download img{
+        border-radius: 20px;
+    }
+    .download a{
+        text-decoration: none;
+        background-color: black;
+        padding: 15px 40px;
+        color: white;
+        border-radius: 20px;
+        margin-bottom: 50px;
+        margin-top: 30px;
+    }
+    .download a:hover{
+        box-shadow: 2px 2px 10px rgb(158, 154, 154);
+    }
+    #dl_btn{
+        margin-right: 50px;
+        text-decoration: none;
+        font-weight: 500;
+        color: white;
+        background-color: black;
+        border-radius: 20px;
+        padding: 5px 40px;
+        line-height: 1.8em;
+    }
+    #dl_btn:hover{
+        box-shadow: 2px 2px 10px rgb(158, 154, 154);
+    }
+
+    .left{
+        /* background-color: red; */
+        width: 50%;
+        display: flex;
+        align-items: left;
+        margin-left: 100px;
+        justify-content: center;
+        flex-direction: column;
+    }
+    .left h2{
+        font-size: 30px;
+        line-height: 2em;
+        padding-left: 60px;
+    }
+    .right{
+        padding-top: 20px;
+        /* background-color: green; */
+        width: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        flex-direction: column;
+    }
+    .right h2{
+        font-size: 36px;
+    }
+
+    .footer{        
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 50px;
+        background: rgb(92, 191, 224);
+    }
+    .footer p{
+        font-weight: 500;
+    }
+    .contactus{
+        margin: 60px 0;
+        width: 100%;
+        height: auto;
+    }
+    .contactus h1{
+        text-align: center;
+    }
+    .contactus{
+        width: 100%;
+    }
+    .contactus .float1{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+        border: 2px solid li;
+    }
+    .form{
+        margin-top: 90px;
+        padding: 50px;
+        border-radius: 10px;
+        border: 2px solid lightskyblue;
+        text-align: center;
+    }
+    .form input{
+        width: 500px;
+        height: 50px;
+        padding: 10px;
+        margin-bottom: 20px;
+        border-radius: 5px;
+        outline: none;
+        border: none;
+        border-bottom: 2px solid lightskyblue;
+    }
+    .form textarea{
+        padding: 10px;
+    }
+    .form button{
+        margin-top: 15px;
+        padding:  15px 40px;
+        border-radius: 10px;
+        outline: none;
+        border: none;
+        background-color: lightskyblue;
+    }
+    .form button:hover{        
+        box-shadow: 2px 2px 10px rgb(158, 154, 154);
+    }
+    .contactus .float1 .left1 form{
+        display: flex;
+        align-items: center;
+        justify-content: center;        
+    }
+    .contactus .float1 .right1 h1{
+        margin-bottom: 30px;
+    }
+    
+</style>
+<body>
+    <a id="arrow" href="#menu">&uarr;</a>
+    <div id="menu" class="menu">
+        <h2>Pet Met</h2>
+        <div class="links">
+            <a href="#">Home</a>
+            <a href="#aboutus">About Us</a>
+            <a href="#contactus">Contact Us</a>
+            <!-- <a href="#chat-scroll">Chat</a>
+            <a href="#match-scroll">Match</a>
+            <a href="#meet-scroll">Meet</a> -->
+        </div>        
+        <a href="#dl" id="dl_btn">Download</a>
+    </div> 
+
+    <!-- Swiper -->
+    <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                    <img src="https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1169&q=80" >
+            </div>
+            <div class="swiper-slide">
+                <img src="https://images.pexels.com/photos/3299905/pexels-photo-3299905.jpeg?cs=srgb&dl=pexels-goochie-poochie-grooming-3299905.jpg&fm=jpg" >
+            </div>
+            <div class="swiper-slide">
+                <img src="https://images.unsplash.com/photo-1576201836106-db1758fd1c97?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80" >
+            </div>          
+        </div>
+      </div>
+
+      <!--About Section-->
+      <section id="aboutus" class="about">
+          <h1>About Us</h1>
+          <div class="para">
+            <p>Have you ever met a dog on a walk and can't remember the good boy's name? Have you ever been to the dog park and met a cute Golden Retriever and wanted to remember that moment? Does your friend have a cute pet snake? Or a turtle you want to share with the world?
+            Pets I've Met is a free social media app for adventurous animal lovers. It allows users to keep photo memories of all the animals they meet in an organized, easy-to-access format.</p>
+        </div>
+      </section>
+
+      <!-- What We Are -->
+      <section id="aboutus" class="about what">
+          <h1>What We Are</h1>
+          <div class="para">
+            <p>Have you ever met a dog on a walk and can't remember the good boy's name? Have you ever been to the dog park and met a cute Golden Retriever and wanted to remember that moment? Does your friend have a cute pet snake? Or a turtle you want to share with the world?
+            Pets I've Met is a free social media app for adventurous animal lovers. It allows users to keep photo memories of all the animals they meet in an organized, easy-to-access format.</p>
+        </div>
+      </section>
+
+    <!-- <div id="chat-scroll" class="chat-content"> 
+        <h2>Chat Box</h2> 
+        <div class="chat-box">
+            <div class="msg">
+                <span class="text1">Hi!</span><br>
+                <span class="text2">Hello!</span>
+            </div>         
+            <button class="to">To</button>
+            <input type="text">
+            <button>Send</button>
+        </div>
+    </div>    -->
+
+    <section id="dl" class="download">
+        <h1>To Explore More Download the App</h1>
+        <h2>Avaliable at PlayStore</h2>
+        <div class="float">
+            <div class="left">
+                <h2>* Easy to Use</h2>
+                <h2>* Avaliable for Free</h2>
+                <h2>* 24 x 7 Helpline Support</h2>
+            </div>
+        <div class="right">
+            <h2>Pet Met</h2>
+            <img src="https://play-lh.googleusercontent.com/J5SXdFIrEPql_siWEjqxrvGFHznI34XtYa5u2R3LhSA_ClSwiTLnJNtpNXGAiE_tFug=s180-rw" >
+            <a href="https://play.google.com/store/apps/details?id=petbreeds.userspet.petbreeds" target="_black">Download</a></div>
+        </div>
+        
+    </section>
+
+    <!-- <div id="match-scroll" class="match-content">
+        <div class="profile" ><img src="https://images.unsplash.com/photo-1583511655826-05700d52f4d9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=388&q=80" width="330px" height="290px">Joni</div>
+        <div class="profile" ><img src="https://images.unsplash.com/photo-1592754862816-1a21a4ea2281?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80" width="330px" height="290px">Lab</div>
+        <div class="profile" ><img src="https://images.unsplash.com/photo-1555685812-4b943f1cb0eb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" width="330px" height="290px">Caty</div>
+        <div class="profile" ><img src="https://images.unsplash.com/photo-1563460716037-460a3ad24ba9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80" width="330px" height="290px">Shady</div>
+        <div class="profile" ><img src="https://images.unsplash.com/photo-1537151608828-ea2b11777ee8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=394&q=80" width="330px" height="290px">Puppy</div>
+        <div class="profile" ><img src="https://images.unsplash.com/photo-1559190394-df5a28aab5c5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=435&q=80" width="330px" height="290px">Goldy</div>
+        <div class="profile" ><img src="https://images.unsplash.com/photo-1560807707-8cc77767d783?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=435&q=80" width="330px" height="290px">Cutey</div>
+        <div class="profile" ><img src="https://images.unsplash.com/photo-1629740067905-bd3f515aa739?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=388&q=80" width="330px" height="290px">Smally</div>
+        <div class="profile" ><img src="https://images.unsplash.com/photo-1606214174585-fe31582dc6ee?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80" width="330px" height="290px">Whitey</div>
+        <div class="profile" ><img src="https://images.unsplash.com/photo-1561037404-61cd46aa615b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" width="330px" height="290px">Peter</div>
+        <div class="profile" ><img src="https://images.unsplash.com/photo-1517849845537-4d257902454a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=435&q=80" width="330px" height="290px">Shadow</div>
+        <div class="profile" ><img src="https://images.unsplash.com/photo-1543852786-1cf6624b9987?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80" width="330px" height="290px">Albert</div>
+    </div> -->
+
+    <div class="contactus" id="contactus">
+        <h1>Contact Us</h1>
+        <div class="float1">
+            <div class="lift1">
+                <form class="form" >
+                    <input type="text" placeholder="Enter your Full Name"><br>
+                    <input type="email" placeholder="Enter your Email"><br>
+                    <input type="number" placeholder="Enter your Phone Number"><br>
+                    <textarea cols="75" rows="10" placeholder="Message"></textarea><br>
+                    <button>Submit</button>
+                </form>
+            </div>
+            <div class="right1">
+                <h1>Location</h1>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3502.562064237217!2d77.22732101489291!3d28.612911982425636!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce2daa9eb4d0b%3A0x717971125923e5d!2sIndia%20Gate!5e0!3m2!1sen!2sin!4v1647250571648!5m2!1sen!2sin" width="600" height="450" style="border:0;"></iframe>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>© 2021 Copyright Pet Met. All Rights Reserved</p>
+    </footer>
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>  
+    <script>
+        var swiper = new Swiper(".mySwiper", {
+          slidesPerView: 1,
+          spaceBetween: 5,
+          centeredSlides: true,
+          grabCursor: true,
+          loop: true,
+        });
+      </script>
+</body>
+</html>
