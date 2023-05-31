@@ -1,5 +1,5 @@
 # Components
-This is a folder small Projects and Components are available
+This is a folder in which small Projects and Components are available
 
 ## Getting Started
 
